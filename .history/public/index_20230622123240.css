@@ -70,17 +70,7 @@ body {
 }
 
 .footer {
-  background-color: rgb(35, 19, 107);
-  color: white;
-}
-
-.footer div {
-  display: flex;
-  justify-content: center
-}
-
-.footer div p {
-  margin-right: 2em;
+  background-color: lightcoral;
 }
 
 @media screen and (max-width: 600px) {

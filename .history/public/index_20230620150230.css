@@ -32,9 +32,8 @@ body {
   margin: 20px;
 }
 
-#propertyDisplay {
+#propertDisplay {
   display: flex;
-  justify-content: center;
 }
 
 .property-card {
@@ -69,24 +68,8 @@ body {
   border-radius: 10px;
 }
 
-.footer {
-  background-color: rgb(35, 19, 107);
-  color: white;
-}
-
-.footer div {
-  display: flex;
-  justify-content: center
-}
-
-.footer div p {
-  margin-right: 2em;
-}
-
 @media screen and (max-width: 600px) {
   .property-card {
       max-width: 100%;
   }
 }
-
-

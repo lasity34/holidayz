@@ -33,7 +33,6 @@ const reviews: {
     stars: 4,
     loyaltyUser: loyalty_types.BRONZE_USER,
     date: '27-03-2021',
-    description: "Great big property"
   },
 ];
 

@@ -1,39 +1,35 @@
-// Enum Types mini-challenge
-// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
-// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE 
-// and Omar SILVER.
-// 2. export the enum
-// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
+// Fixing the Website
 
-import { showReviewTotal, populateUser, displayProperties } from './utils';
+// Can you fix my code to show 'Welcome back Bobby' in the Nav Bar for
+// our couch surfing website? Do this by assigning types to the parameters
+// we pass to our populateUser function, so that we can be aware of
+// errors in our user objects in the future.
 
-import { permissions, loyalty_types } from './enum';
-const footer = document.querySelector(".footer") as HTMLDivElement
+import { showReviewTotal, populateUser } from './utils';
 
-const reviews: { 
-  name: string; 
-  stars: number; 
-  loyaltyUser: loyalty_types 
-  date: string
-  }[] = [
+const reviews: {
+  name: string;
+  stars: number;
+  loyaltyUser: boolean;
+  date: string;
+}[] = [
   {
     name: 'Sheia',
     stars: 5,
-    loyaltyUser: loyalty_types.GOLD_USER,
+    loyaltyUser: true,
     date: '01-04-2021',
   },
   {
     name: 'Andrzej',
     stars: 3,
-    loyaltyUser: loyalty_types.SILVER_USER,
+    loyaltyUser: false,
     date: '28-03-2021',
   },
   {
     name: 'Omar',
     stars: 4,
-    loyaltyUser: loyalty_types.BRONZE_USER,
+    loyaltyUser: true,
     date: '27-03-2021',
-    description: "Great big property"
   },
 ];
 
@@ -60,11 +56,11 @@ const homes: {
     townCity: string;
     country: string;
   };
-  contactDetails: [string, string];
+  contactDetails: string;
   availableToRent: boolean;
 }[] = [
   {
-    image: './images/green_point_home.jpg',
+    image: './public/images/green_point_home.png',
     title: 'Cozy Beachfront Cottage',
     pricePerNight: 150,
     location: {
@@ -72,11 +68,11 @@ const homes: {
       townCity: 'Green Point',
       country: 'South Africa',
     },
-    contactDetails: ['greenpointcosy@gmail.com','+27 987 654 3210'],
+    contactDetails: '+27 987 654 3210',
     availableToRent: true,
   },
   {
-    image: './images/hout_bay.jpg',
+    image: './public/images/hout_bay.jpg',
     title: 'Luxury Villa with Pool',
     pricePerNight: 300,
     location: {
@@ -84,11 +80,11 @@ const homes: {
       townCity: 'Hout Bay',
       country: 'South Africa',
     },
-    contactDetails: ['tyga@gmail.com','+27 123 456 7890'],
+    contactDetails: '+27 123 456 7890',
     availableToRent: false,
   },
   {
-    image: "./images/sea_point.jpg",
+    image: "./public/images/sea_point.jpg",
     title: "Seaside Penthouse",
     pricePerNight: 350,
     location: {
@@ -97,7 +93,7 @@ const homes: {
         townCity: "Sea Point",
         country: "South Africa",
     },
-    contactDetails: ["maryjules@gmail.com","+27 345 678 9012"],
+    contactDetails: "+27 345 678 9012",
     availableToRent: false,
   }
 ];
@@ -105,12 +101,3 @@ const homes: {
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
 populateUser(you.isReturning, you.firstName);
-
-displayProperties(homes)
-
-let currentLocation: [string, string, number] = ["Cape Town", "06.22", 16]
-footer.innerHTML = `<div>
-<p>${currentLocation[0]}</p>
-<p> ${currentLocation[1]}</p>
-<p> ${currentLocation[2]}°C</p>
-</div>`

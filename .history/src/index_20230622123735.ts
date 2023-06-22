@@ -1,39 +1,37 @@
-// Enum Types mini-challenge
-// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
-// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE 
-// and Omar SILVER.
-// 2. export the enum
-// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
+// Tuples challenge
+// 1. Add an array to the variable of currentLocation I have added. This array
+// must have your current location, time, and degrees celcius of your location
+// NOTE: make sure to make this a Tuple, to only allow those types in that
+// structure.
+// 2. Add this visually to a footer on your site
 
 import { showReviewTotal, populateUser, displayProperties } from './utils';
 
-import { permissions, loyalty_types } from './enum';
 const footer = document.querySelector(".footer") as HTMLDivElement
 
-const reviews: { 
-  name: string; 
-  stars: number; 
-  loyaltyUser: loyalty_types 
-  date: string
-  }[] = [
+const reviews: {
+  name: string;
+  stars: number;
+  loyaltyUser: boolean;
+  date: string;
+}[] = [
   {
     name: 'Sheia',
     stars: 5,
-    loyaltyUser: loyalty_types.GOLD_USER,
+    loyaltyUser: true,
     date: '01-04-2021',
   },
   {
     name: 'Andrzej',
     stars: 3,
-    loyaltyUser: loyalty_types.SILVER_USER,
+    loyaltyUser: false,
     date: '28-03-2021',
   },
   {
     name: 'Omar',
     stars: 4,
-    loyaltyUser: loyalty_types.BRONZE_USER,
+    loyaltyUser: true,
     date: '27-03-2021',
-    description: "Great big property"
   },
 ];
 
@@ -108,9 +106,5 @@ populateUser(you.isReturning, you.firstName);
 
 displayProperties(homes)
 
-let currentLocation: [string, string, number] = ["Cape Town", "06.22", 16]
-footer.innerHTML = `<div>
-<p>${currentLocation[0]}</p>
-<p> ${currentLocation[1]}</p>
-<p> ${currentLocation[2]}°C</p>
-</div>`
+let currentLocation
+footer.innerHTML = currentLocation

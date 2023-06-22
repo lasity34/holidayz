@@ -7,33 +7,31 @@
 
 import { showReviewTotal, populateUser, displayProperties } from './utils';
 
-import { permissions, loyalty_types } from './enum';
 const footer = document.querySelector(".footer") as HTMLDivElement
 
-const reviews: { 
-  name: string; 
-  stars: number; 
-  loyaltyUser: loyalty_types 
-  date: string
-  }[] = [
+const reviews: {
+  name: string;
+  stars: number;
+  loyaltyUser: boolean;
+  date: string;
+}[] = [
   {
     name: 'Sheia',
     stars: 5,
-    loyaltyUser: loyalty_types.GOLD_USER,
+    loyaltyUser: true,
     date: '01-04-2021',
   },
   {
     name: 'Andrzej',
     stars: 3,
-    loyaltyUser: loyalty_types.SILVER_USER,
+    loyaltyUser: false,
     date: '28-03-2021',
   },
   {
     name: 'Omar',
     stars: 4,
-    loyaltyUser: loyalty_types.BRONZE_USER,
+    loyaltyUser: true,
     date: '27-03-2021',
-    description: "Great big property"
   },
 ];
 
