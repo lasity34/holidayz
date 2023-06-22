@@ -69,11 +69,6 @@ body {
   border-radius: 10px;
 }
 
-.no-login {
-  padding: 3em;
-  text-align: center;
-}
-
 .footer {
   background-color: rgb(35, 19, 107);
   color: white;

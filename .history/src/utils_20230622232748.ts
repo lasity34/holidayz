@@ -27,7 +27,7 @@ export function displayProperties(isLogged: boolean | permissions, properties: a
         propertyDisplay.innerHTML += `<div class="property-card">
         <h2 class="property-title">${property.title}</h2>
         <img class='property-image' src="${property.image}" alt="${property.title}" />
-        ${isLogged ? `${property.pricePerNight} per night` : ""}
+        ${isLogged || permissions.ADMIN ? `${property.pricePerNight} per night` : ""}
     </div>
     `
     }) 

@@ -41,7 +41,7 @@ const reviews: {
 const you = {
   firstName: 'Bobby',
   lastName: 'Brown',
-  permissions: permissions.ADMIN,
+  permissions: false
   isReturning: true,
   age: 23,
   stayedAt: ['constantia-villa', 'clifton-flat', 'paarl-house'],

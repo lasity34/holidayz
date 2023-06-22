@@ -3,7 +3,7 @@
 // the 3 properties image and title to the dashboard based on the 
 // properties array
 
-import { loyalty_types, permissions } from "./enum"
+import { loyalty_types } from "./enum"
 
 const returningUserDisplay = document.querySelector('#returning-user') as HTMLDivElement
 const userNameDisplay = document.querySelector('#user') as HTMLDivElement
@@ -22,15 +22,14 @@ export function populateUser(isReturning: boolean, firstName:string ) {
     userNameDisplay.innerHTML = firstName
 }
 
-export function displayProperties(isLogged: boolean | permissions, properties: any) {
-        properties.map(property => {
+export function displayProperties(isLogged: boolean, properties: any) {
+  isLogged ?  properties.map(property => {
         propertyDisplay.innerHTML += `<div class="property-card">
         <h2 class="property-title">${property.title}</h2>
         <img class='property-image' src="${property.image}" alt="${property.title}" />
-        ${isLogged ? `${property.pricePerNight} per night` : ""}
+        <p>R${property.pricePerNight} per night</p>
     </div>
     `
-    }) 
+    })  : propertyDisplay.innerHTML = " <h1 class='no-login'>First login to display</h1>"
 
 }
-

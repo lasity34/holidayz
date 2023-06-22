@@ -41,7 +41,7 @@ const reviews: {
 const you = {
   firstName: 'Bobby',
   lastName: 'Brown',
-  permissions: permissions.ADMIN,
+  permissions: null,
   isReturning: true,
   age: 23,
   stayedAt: ['constantia-villa', 'clifton-flat', 'paarl-house'],
@@ -105,7 +105,7 @@ showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
 populateUser(you.isReturning, you.firstName);
 
-displayProperties(you.permissions, homes)
+displayProperties( homes)
 
 let currentLocation: [string, string, number] = ["Cape Town", "06.22", 16]
 footer.innerHTML = `<div>

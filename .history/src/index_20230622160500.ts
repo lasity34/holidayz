@@ -8,8 +8,7 @@ import { showReviewTotal, populateUser, displayProperties } from './utils';
 import { permissions, loyalty_types } from './enum';
 const footer = document.querySelector(".footer") as HTMLDivElement
 
-let isLoggedIn: boolean;
-
+let isLoggedIn: boolean
 
 const reviews: { 
   name: string; 
@@ -98,14 +97,11 @@ const homes: {
   }
 ];
 
-let authorityStatus : any;
-isLoggedIn = true
-
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
 populateUser(you.isReturning, you.firstName);
 
-displayProperties(you.permissions, homes)
+displayProperties(isLoggedIn, homes)
 
 let currentLocation: [string, string, number] = ["Cape Town", "06.22", 16]
 footer.innerHTML = `<div>
