@@ -55,7 +55,7 @@ export function addReviews(array: Review[]) : void {
 
 export function getTopTwoReviews(reviews: Review[]) : Review[] { 
  const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
- return sortedReviews.slice(0,3)
+ return sortedReviews.slice(0,2)
 }
 
 
