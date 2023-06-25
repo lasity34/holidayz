@@ -4,15 +4,19 @@
 // 2. Add types to the function in this file that shows the reviews when we click the button
 
 import { showReviewTotal, populateUser, displayProperties, addReviews } from './utils';
-import  { differentTown, price, Review, property} from './types'
+import  { differentTown, price, star} from './types'
 import { permissions, loyalty_types } from './enum';
 const footer = document.querySelector(".footer") as HTMLDivElement
 const button = document.querySelector(".review_btn") as HTMLButtonElement
-
 let isLoggedIn: boolean;
 
 
-const reviews: Review[] = [
+const reviews: { 
+  name: string; 
+  stars: number; 
+  loyaltyUser: loyalty_types 
+  date: string
+  }[] = [
   {
     name: 'Sheia',
     stars: 5,
@@ -44,7 +48,18 @@ const you = {
 };
 
 
-const homes: property[] = [
+const homes: {
+  image: string;
+  title: string;
+  pricePerNight: price;
+  location: {
+    firstLineAddress: string;
+    townCity: differentTown
+    country: string;
+  };
+  contactDetails: [string, string];
+  availableToRent: boolean;
+}[] = [
   {
     image: './images/green_point_home.jpg',
     title: 'Cozy Beachfront Cottage',

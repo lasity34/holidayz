@@ -44,7 +44,18 @@ const you = {
 };
 
 
-const homes: property[] = [
+const homes: {
+  image: string;
+  title: string;
+  pricePerNight: price;
+  location: {
+    firstLineAddress: string;
+    townCity: differentTown
+    country: string;
+  };
+  contactDetails: [string, string];
+  availableToRent: boolean;
+}[] = [
   {
     image: './images/green_point_home.jpg',
     title: 'Cozy Beachfront Cottage',

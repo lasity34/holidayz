@@ -1,6 +1,6 @@
 
 import { loyalty_types, permissions } from "./enum"
-import { Review, Property, star } from "./types"
+import { Review, star } from "./types"
 
 const returningUserDisplay = document.querySelector('#returning-user') as HTMLDivElement
 const userNameDisplay = document.querySelector('#user') as HTMLDivElement
@@ -21,7 +21,7 @@ export function populateUser(isReturning: boolean, firstName:string ) {
     userNameDisplay.innerHTML = firstName
 }
 
-export function displayProperties(isLogged: boolean | permissions, properties: Property[]) {
+export function displayProperties(isLogged: boolean | permissions, properties: any) {
         properties.map(property => {
         propertyDisplay.innerHTML += `<div class="property-card">
         <h2 class="property-title">${property.title}</h2>
@@ -40,23 +40,33 @@ export function makeMultiple(value: number) : string {
     } else return ''
 }
 
-
-export function addReviews(array: Review[]) : void {
-    const topTwo = getTopTwoReviews(array);
-    topTwo.map(review => {
-      reviewDisplay.innerHTML += `<h4>
-      ${review.stars} ⭐ from ${review.name} ${review.date}
-      </h4>`;
-    });
-  }
+// name: string; 
+// stars: star; 
+// loyaltyUser: loyalty_types 
+// date: string
+// }[]
 
 
-export function getTopTwoReviews(reviews: Review[]) : Review[] { 
+export function addReviews(array: Review[]) : void { 
+        const topTwo = getTopTwoReviews(array)
+        getTopTwoReviews.map(review => {
+            reviewDisplay.innerHTML += `<div>
+            ${review.name} ${review.stars} ${review.date}
+            </div>`
+        })
+        
+    
+}
+
+export function getTopTwoReviews(reviews : { 
+    name: string; 
+     date: string;
+     stars: star; 
+     }[]) : { 
+         name: string; 
+         stars: number; 
+         date: string; 
+         }  {
  const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
  return sortedReviews.slice(0,2)
 }
-
-
-
-  
-  

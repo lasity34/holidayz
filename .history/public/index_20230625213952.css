@@ -10,7 +10,7 @@ body {
 .container {
   margin: 20px;
   text-align: center;
-
+  border-bottom: 1px solid grey;
 }
 
 .nav-bar {
@@ -108,10 +108,6 @@ body {
   }
 }
 
-.button_container {
-  margin: 0 auto;
-  border-bottom: 1px solid grey;
-}
 
 button {
   color: #fff; /* Text color to white */
@@ -131,10 +127,6 @@ button {
 button:hover {
   background-color: #4CAF50; /* Change background color when hovering over button */
   color: #0A192F; /* Change text color when hovering over button */
-}
-
-.reviewDisplay {
- text-align: center;
 }
 
 

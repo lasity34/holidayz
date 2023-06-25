@@ -10,7 +10,7 @@ body {
 .container {
   margin: 20px;
   text-align: center;
-
+  border-bottom: 1px solid grey;
 }
 
 .nav-bar {
@@ -37,14 +37,7 @@ body {
 
 .user-container {
   margin: 20px;
-  font-size: 1.3rem;
 }
-
-#reviews {
-  font-size: 1.2rem;
-}
-
-
 
 #propertyDisplay {
   display: flex;
@@ -60,7 +53,7 @@ body {
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  width: 20%;
+  width: 50%;
   max-width: 400px;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -106,35 +99,6 @@ body {
   .property-card {
       max-width: 100%;
   }
-}
-
-.button_container {
-  margin: 0 auto;
-  border-bottom: 1px solid grey;
-}
-
-button {
-  color: #fff; /* Text color to white */
-  background-color: #0A192F; /* Dark blue background color */
-  border: none; /* Remove any default borders */
-  padding: 10px 20px; /* Padding to make the button a bit larger and easier to click */
-  text-align: center; /* Align the text to the center of the button */
-  text-decoration: none; /* Remove any default text decorations */
-  display: inline-block;
-  font-size: 16px;
-  margin: 0 auto;
-  cursor: pointer; /* Change the cursor when you hover over the button */
-  border-radius: 8px; /* Round the corners of the button */
-  transition-duration: 0.4s; /* Time it takes to transition from one state to another */
-}
-
-button:hover {
-  background-color: #4CAF50; /* Change background color when hovering over button */
-  color: #0A192F; /* Change text color when hovering over button */
-}
-
-.reviewDisplay {
- text-align: center;
 }
 
 

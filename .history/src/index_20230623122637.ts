@@ -1,18 +1,22 @@
-// Function Types challenge - Pass the code review
-// 1. Add types to the function that returns the top 2 reviews specifically based on
-// descending order. Make sure to use what you learned in the previous lessons.
-// 2. Add types to the function in this file that shows the reviews when we click the button
+// Union Types Challenge
+// 1. Fix the function to show the price per night for each property card only
+// if isLoggedIn is true, or the you object has Permissions. (all permissions should work)
+// 2. See what happens when a null object to be passed to the you objects permissions.
 
-import { showReviewTotal, populateUser, displayProperties, addReviews } from './utils';
-import  { differentTown, price, Review, property} from './types'
+import { showReviewTotal, populateUser, displayProperties } from './utils';
+
 import { permissions, loyalty_types } from './enum';
 const footer = document.querySelector(".footer") as HTMLDivElement
-const button = document.querySelector(".review_btn") as HTMLButtonElement
 
 let isLoggedIn: boolean;
 
 
-const reviews: Review[] = [
+const reviews: { 
+  name: string; 
+  stars: number; 
+  loyaltyUser: loyalty_types 
+  date: string
+  }[] = [
   {
     name: 'Sheia',
     stars: 5,
@@ -43,8 +47,20 @@ const you = {
   stayedAt: ['constantia-villa', 'clifton-flat', 'paarl-house'],
 };
 
+type differentTown = 'Green Point' | 'Hout Bay' | 'Sea Point'
 
-const homes: property[] = [
+const homes: {
+  image: string;
+  title: string;
+  pricePerNight: number;
+  location: {
+    firstLineAddress: string;
+    townCity: differentTown
+    country: string;
+  };
+  contactDetails: [string, string];
+  availableToRent: boolean;
+}[] = [
   {
     image: './images/green_point_home.jpg',
     title: 'Cozy Beachfront Cottage',
@@ -87,20 +103,15 @@ const homes: property[] = [
 let authorityStatus : any;
 isLoggedIn = true
 
-let currentLocation: [string, string, number] = ["Cape Town", "06.22", 16]
-footer.innerHTML = `<div>
-<p>${currentLocation[0]}</p>
-<p> ${currentLocation[1]}</p>
-<p> ${currentLocation[2]}°C</p>
-</div>`
-
-
-
-button.addEventListener('click', () => addReviews(reviews))
-
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
 populateUser(you.isReturning, you.firstName);
 
 displayProperties(you.permissions, homes)
 
+let currentLocation: [string, string, number] = ["Cape Town", "06.22", 16]
+footer.innerHTML = `<div>
+<p>${currentLocation[0]}</p>
+<p> ${currentLocation[1]}</p>
+<p> ${currentLocation[2]}°C</p>
+</div>`

@@ -45,7 +45,7 @@ export function addReviews(array: Review[]) : void {
     const topTwo = getTopTwoReviews(array);
     topTwo.map(review => {
       reviewDisplay.innerHTML += `<h4>
-      ${review.stars} ⭐ from ${review.name} ${review.date}
+      ${review.stars} from ${review.name} ${review.date}
       </h4>`;
     });
   }

@@ -1,13 +1,13 @@
+// Function Return Types + Void Types mini-challenge
+// Instead of having a long 'review total 3', can you make the line say '3 reviews', or '1 review'
+// if there is only one? Use a function to do this and assing a type to the functions return.
 
 import { loyalty_types, permissions } from "./enum"
-import { Review, Property, star } from "./types"
 
 const returningUserDisplay = document.querySelector('#returning-user') as HTMLDivElement
 const userNameDisplay = document.querySelector('#user') as HTMLDivElement
 const reviewTotalDisplay = document.querySelector('#reviews') as HTMLDivElement
 const propertyDisplay = document.querySelector('#propertyDisplay') as HTMLDivElement
-const reviewDisplay = document.querySelector(".reviewDisplay") as HTMLDivElement
-
 
 export function showReviewTotal(value: number, reviewer: string, isLoyalty: loyalty_types) {
     const iconDisplay = loyalty_types.GOLD_USER ? '⭐' : ''
@@ -21,7 +21,7 @@ export function populateUser(isReturning: boolean, firstName:string ) {
     userNameDisplay.innerHTML = firstName
 }
 
-export function displayProperties(isLogged: boolean | permissions, properties: Property[]) {
+export function displayProperties(isLogged: boolean | permissions, properties: any) {
         properties.map(property => {
         propertyDisplay.innerHTML += `<div class="property-card">
         <h2 class="property-title">${property.title}</h2>
@@ -39,24 +39,3 @@ export function makeMultiple(value: number) : string {
         return 's'
     } else return ''
 }
-
-
-export function addReviews(array: Review[]) : void {
-    const topTwo = getTopTwoReviews(array);
-    topTwo.map(review => {
-      reviewDisplay.innerHTML += `<h4>
-      ${review.stars} ⭐ from ${review.name} ${review.date}
-      </h4>`;
-    });
-  }
-
-
-export function getTopTwoReviews(reviews: Review[]) : Review[] { 
- const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
- return sortedReviews.slice(0,2)
-}
-
-
-
-  
-  

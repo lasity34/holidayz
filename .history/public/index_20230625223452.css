@@ -134,7 +134,7 @@ button:hover {
 }
 
 .reviewDisplay {
- text-align: center;
+  display: flex;
 }
 
 
